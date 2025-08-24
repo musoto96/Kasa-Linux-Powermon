@@ -13,13 +13,13 @@ __All commands are run on the Kasa-Linux-Powermon directory__
 
 ## Installation
 __All commands are run on the Kasa-Linux-Powermon directory__
-1. Modify `pwmon.conf` with the path to your battery .
+1. Modify `pwmon_conf` with the path to your battery .
 2. Run `bash install -g` to generate a sample config file, edit accordingly.
 3. Install and start the daemon `bash install.sh`
 4. View help interface `bash install.sh -h`
 
 ## Config file
-1. Config file is located in `/etc/pwmon/pwmon.conf`
+1. Config file is located in `/etc/pwmon/pwmon_conf`
 2. Edit this file and restart daemon with `systemctl restart pwmon.service` to apply changes.
 
 ### Useful commands

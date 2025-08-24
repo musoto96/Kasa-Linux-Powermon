@@ -3,3 +3,5 @@ KASA_AC_PLUG_NAME="NAS-AC"
 BATTERY_PATH="/sys/class/power_supply/BAT0"
 # Set to "true" or "false" include doublequotes
 DEBUG="true"
+# Path to Kasa binary (python bin)
+KASA="/root/Kasa-Linux-Powermon/bin/kasa"
