@@ -36,9 +36,20 @@ GenerateConfig()
   fi
 
   echo "Creating config file: $CONF."
-  cat ./conffile 1> ./$CONF
+  cat <<EOF 1> ./$CONF
+# Same name used during setup on Kasa app
+KASA_AC_PLUG_NAME="NAS-AC"
 
-  echo "Edit $CONF with the domain to check and run installer."
+BATTERY_PATH="/sys/class/power_supply/BAT0"
+
+# Set to "true" or "false" include doublequotes
+DEBUG="true"
+
+# Path to Kasa binary (python bin)
+KASA="/root/Kasa-Linux-Powermon/bin/kasa"
+EOF
+
+  echo "Edit $CONF with appropriate paths on your system."
 }
 
 Install()
