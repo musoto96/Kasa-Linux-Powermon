@@ -97,7 +97,7 @@ Install()
   echo "Creating service under the name $DAEMON.service"
   cat <<EOF 1> /etc/systemd/system/$DAEMON.service
 [Unit]
-Description=Linux power monitor for Kasa WIFI smart plug
+Description=$DESCRIPTION
 
 [Service]
 EnvironmentFile=$ETC/$CONF

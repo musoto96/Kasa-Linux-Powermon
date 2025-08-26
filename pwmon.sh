@@ -12,7 +12,7 @@ batteryPoller () {
   BATTERY_STATE=$(cat $BATTERY_PATH/status)
   BATTERY_CAPACITY=$(cat $BATTERY_PATH/capacity)
 
-  if [ $BATTERY_CAPACITY -lt 35 ]; then
+  if [ $BATTERY_CAPACITY -lt $MIN_THRESHOLD ]; then
     case $BATTERY_STATE in
       Discharging)
         log "info" "Low battery: $BATTERY_CAPACITY%. Toggling AC adapter ON"
@@ -23,7 +23,7 @@ batteryPoller () {
         ;;
     esac
 
-  elif [ $BATTERY_CAPACITY -gt 75 ]; then
+  elif [ $BATTERY_CAPACITY -gt $MAX_THRESHOLD ]; then
     case $BATTERY_STATE in
       Discharging)
         log "debug" "AC adapter already OFF"
@@ -52,7 +52,9 @@ togglePower () {
 log () {
   case $1 in
     debug)
-      [ $DEBUG = "true" ] && echo "DEBUG: $2"
+      if [ $DEBUG = "true" ]; then
+        echo "DEBUG: $2"
+      fi
       ;;
     info)
       echo "INFO: $2"

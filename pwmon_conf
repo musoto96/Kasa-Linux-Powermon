@@ -1,6 +1,8 @@
 # Same name used during setup on Kasa app
 KASA_AC_PLUG_NAME="NAS-AC"
 BATTERY_PATH="/sys/class/power_supply/BAT0"
+MIN_THRESHOLD=35
+MAX_THRESHOLD=75
 # Set to "true" or "false" include doublequotes
 DEBUG="true"
 # Path to Kasa binary (python bin)
